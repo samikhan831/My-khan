@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>شفیع اللہ الیکٹریشن</title>
+
+    <!-- Inline CSS -->
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Nastaliq Urdu', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #075E54, #4267B2, #E1306C);
+            background-size: 400% 400%;
+            animation: gradientBG 10s ease infinite;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        header {
+            background-color: rgba(7, 94, 84, 0.9);
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            animation: fadeInDown 2s ease;
+        }
+
+        header .logo img {
+            width: 100px;
+            margin: 10px auto;
+            display: block;
+            animation: fadeIn 2s ease;
+        }
+
+        nav {
+            background: rgba(66, 103, 178, 0.9);
+            display: flex;
+            justify-content: center;
+            padding: 10px 0;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #E1306C;
+        }
+
+        section {
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 900px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        section h2 {
+            text-align: center;
+            color: #075E54;
+        }
+
+        .upload-btn {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background: #25D366;
+            color: white;
+            font-size: 1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .upload-btn:hover {
+            background: #20c15b;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px 0;
+            background: rgba(7, 94, 84, 0.9);
+            color: white;
+            margin-top: 20px;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="logo">
+            <img src="logo.png" alt="شفیع اللہ لوگو" />
+        </div>
+        <h1>ہوش آمدید (Welcome)</h1>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="#about">تعریف</a>
+        <a href="#services">سروسز</a>
+        <a href="#contact">رابطہ</a>
+        <a href="#upload">اپ لوڈ</a>
+    </nav>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2>شفیع اللہ الیکٹریشن کے بارے میں</h2>
+        <p><strong>پتہ:</strong> شیر دل کوٹے، چار باغ، صوابی، پاکستان</p>
+        <p><strong>کام کا تجربہ:</strong> 1 اپریل 2022 سے</p>
+        <p><strong>شراکت داری:</strong> جی ہاں</p>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services">
+        <h2>ہماری خدمات</h2>
+        <p>ہم سولر گریڈ انسٹالیشن اور مرمت کے کاموں میں مہارت رکھتے ہیں، اور قابل اعتماد الیکٹریکل خدمات فراہم کرتے ہیں۔</p>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2>رابطہ کریں</h2>
+        <p><strong>فون:</strong> 
+            <a href="tel:03193391681" style="color: #075E54; text-decoration: none;">03193391681</a>
+        </p>
+        <p><strong>ای میل:</strong> 
+            <a href="mailto:shafiullah897969@gmail.com" style="color: #075E54; text-decoration: none;">shafiullah897969@gmail.com</a>
+        </p>
+    </section>
+
+    <!-- Upload Section -->
+    <section id="upload">
+        <h2>اپنی فائلز اپ لوڈ کریں</h2>
+        <input type="file" id="fileUpload" accept="image/*,text/*,video/*" class="upload-btn" />
+        <p id="fileName" style="text-align: center; margin-top: 10px;"></p>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 شفیع اللہ الیکٹریشن۔ جملہ حقوق محفوظ ہیں۔</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // File upload logic
+        const fileUpload = document.getElementById('fileUpload');
+        const fileName = document.getElementById('fileName');
+
+        fileUpload.addEventListener('change', () => {
+            if (fileUpload.files.length > 0) {
+                fileName.textContent = `منتخب فائل: ${fileUpload.files[0].name}`;
+            } else {
+                fileName.textContent = "کوئی فائل منتخب نہیں ہوئی۔";
+            }
+        });
+    </script>
+</body>
+
+</html>
